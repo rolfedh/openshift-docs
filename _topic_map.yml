@@ -75,8 +75,8 @@ Name: Release notes
 Dir: release_notes
 Distros: openshift-enterprise,openshift-webscale
 Topics:
-- Name: OpenShift Container Platform 4.4 release notes
-  File: ocp-4-4-release-notes
+- Name: OpenShift Container Platform 4.5 release notes
+  File: ocp-4-5-release-notes
 - Name: Versioning policy
   File: versioning-policy
 ---
@@ -99,6 +99,9 @@ Topics:
   Distros: openshift-origin
 - Name: Red Hat Enterprise Linux CoreOS
   File: architecture-rhcos
+  Distros: openshift-enterprise,openshift-webscale
+- Name: The CI/CD methodology and practice
+  File: cicd_gitops
   Distros: openshift-enterprise,openshift-webscale
 ---
 Name: Administering a cluster
@@ -194,12 +197,12 @@ Topics:
     File: ipi-install-installation-workflow
   - Name: Troubleshooting
     File: ipi-install-troubleshooting
-- Name: Installing on IBM Z
-  Dir: installing_ibm_z
-  Distros: openshift-enterprise,openshift-webscale
-  Topics:
-  - Name: Installing a cluster on IBM Z
-    File: installing-ibm-z
+# - Name: Installing on IBM Z and LinuxONE
+#   Dir: installing_ibm_z
+#   Distros: openshift-enterprise,openshift-webscale
+#   Topics:
+#   - Name: Installing a cluster on IBM Z and LinuxONE
+#     File: installing-ibm-z
 - Name: Installing on OpenStack
   Dir: installing_openstack
   Topics:
@@ -759,6 +762,8 @@ Topics:
 #  File: understanding-openshift-pipelines
 #- Name: Installing Pipelines
 #  File: installing-pipelines
+#- Name: Uninstalling Pipelines
+#  File: uninstalling-pipelines
 #- Name: Getting started with OpenShift Pipelines
 #  File: getting-started-with-openshift-pipelines
 #- Name: Working with Pipelines using the Developer perspective
@@ -809,6 +814,9 @@ Topics:
     File: images-other-jenkins
   - Name: Jenkins agent
     File: images-other-jenkins-agent
+- Name: Building and deploying a DPDK payload using the s2i image
+  File: cnf-building-and-deploying-a-dpdk-payload
+  Distros: openshift-webscale     
 ---
 Name: Applications
 Dir: applications
@@ -886,6 +894,9 @@ Topics:
   Distros: openshift-origin,openshift-enterprise,openshift-webscale
 - Name: Pruning objects to reclaim resources
   File: pruning-objects
+  Distros: openshift-origin,openshift-enterprise,openshift-webscale
+- Name: Using the Red Hat Marketplace
+  File: red-hat-marketplace
   Distros: openshift-origin,openshift-enterprise,openshift-webscale
 ---
 Name: Machine management
@@ -1209,6 +1220,9 @@ Topics:
   File: routing-optimization
 - Name: What huge pages do and how they are consumed by apps
   File: what-huge-pages-do-and-how-they-are-consumed-by-apps
+- Name: Performance-addon operator for low latency nodes
+  File: cnf-performance-addon-operator-for-low-latency-nodes
+  Distros: openshift-webscale
 ---
 Name: Backup and restore
 Dir: backup_and_restore
@@ -1406,6 +1420,11 @@ Topics:
     File: ossm-tutorial-jaeger-tracing
   - Name: Automatic route creation
     File: ossm-auto-route
+- Name: Service mesh user guide
+  Dir: service_mesh_user_guide
+  Topics:
+  - Name: Traffic management
+    File: ossm-traffic-manage
 #  - Name: Grafana tutorial
 #    File: ossm-tutorial-grafana
 #  - Name: Prometheus tutorial
@@ -1475,7 +1494,7 @@ Topics:
 - Name: Virtual machines
   Dir: cnv_virtual_machines
   Topics:
-#### VIRTUAL MACHINE CHESS SALAD (silly name to highlight that the commented out assemblies need to be checked against merged filenams)
+###VIRTUAL MACHINE CHESS SALAD (silly name to highlight that the commented out assemblies need to be checked against merged filenams)
   - Name: Creating virtual machines
     File: cnv-create-vms
   - Name: Editing virtual machines
@@ -1497,7 +1516,7 @@ Topics:
   - Name: Advanced virtual machine management
     Dir: cnv_advanced_vm_management
     Topics:
-# Advanced virtual machine configuration
+#Advanced virtual machine configuration
     - Name: Automating management tasks
       File: cnv-automating-management-tasks
     - Name: Configuring PXE booting for virtual machines
@@ -1506,7 +1525,7 @@ Topics:
       File: cnv-managing-guest-memory
     - Name: Enabling dedicated resources for a virtual machine
       File: cnv-dedicated-resources-vm
-# Importing virtual machines
+#Importing virtual machines
   - Name: Importing virtual machines
     Dir: cnv_importing_vms
     Topics:
@@ -1518,7 +1537,7 @@ Topics:
       File: cnv-importing-virtual-machine-images-datavolumes-block
     - Name: Importing a VMware virtual machine or template
       File: cnv-importing-vmware-vm
-# Cloning virtual machines
+#Cloning virtual machines
   - Name: Cloning virtual machines
     Dir: cnv_cloning_vms
     Topics:
@@ -1530,7 +1549,7 @@ Topics:
       File: cnv-cloning-vm-using-datavolumetemplate
     - Name: Cloning a virtual machine disk into a new block storage DataVolume
       File: cnv-cloning-vm-disk-into-new-datavolume-block
-# Virtual machine networking
+#Virtual machine networking
   - Name: Virtual machine networking
     Dir: cnv_vm_networking
     Topics:
@@ -1542,7 +1561,7 @@ Topics:
       File: cnv-installing-qemu-guest-agent
     - Name: Viewing the IP address of NICs on a virtual machine
       File: cnv-viewing-ip-of-vm-nic
-# A BETTER NAME THAN 'STORAGE 4 U'
+#A BETTER NAME THAN 'STORAGE 4 U'
   - Name: Virtual machine disks
     Dir: cnv_virtual_disks
     Topics:
@@ -1562,7 +1581,7 @@ Topics:
       File: cnv-preparing-cdi-scratch-space
     - Name: Deleting DataVolumes
       File: cnv-deleting-datavolumes
-# Templates
+#Templates
 - Name: Virtual machine templates
   Dir: cnv_vm_templates
   Topics:
@@ -1574,7 +1593,7 @@ Topics:
     File: cnv-dedicated-resources-vm-template
   - Name: Deleting a virtual machine template
     File: cnv-deleting-vm-template
-# Virtual machine live migration
+#Virtual machine live migration
 - Name: Live migration
   Dir: cnv_live_migration
   Topics:
@@ -1590,7 +1609,7 @@ Topics:
     File: cnv-cancel-vmi-migration
   - Name: Configuring virtual machine eviction strategy
     File: cnv-configuring-vmi-eviction-strategy
-# Node maintenance mode
+#Node maintenance mode
 - Name: Node maintenance
   Dir: cnv_node_maintenance
   Topics:
@@ -1602,7 +1621,7 @@ Topics:
     File: cnv-setting-node-maintenance
   - Name: Resuming a node from maintenance mode
     File: cnv-resuming-node
-# Node Networking
+#Node Networking
 - Name: Node networking
   Dir: cnv_node_network
   Topics:
@@ -1612,7 +1631,7 @@ Topics:
     File: cnv-updating-node-network-config
   - Name: Troubleshooting node network configuration
     File: cnv-troubleshooting-node-network
-# Logging, events, and monitoring
+#Logging, events, and monitoring
 - Name: Logging, events, and monitoring
   Dir: cnv_logging_events_monitoring
   Topics:
@@ -1661,6 +1680,12 @@ Topics:
     File: installing-kn
   - Name: Removing OpenShift Serverless
     File: removing-openshift-serverless
+# Apps
+- Name: Creating and managing serverless applications
+  File: serving-creating-managing-apps
+# HA
+- Name: Configuring high-availability components
+  File: serverless-config-HA
 # Knative CLI
 - Name: Knative CLI
   Dir: knative_cli
@@ -1673,10 +1698,7 @@ Topics:
   Topics:
   - Name: How Knative Serving works
     File: serverless-knative-serving
-  - Name: Getting started with Knative services
-    File: getting-started-knative-services
-  - Name: Creating serverless applications
-    File: creating-serverless-applications
+  ### Knative services
   - Name: Interacting with serverless applications
     File: interacting-serverless-apps
   - Name: Configuring Knative Serving autoscaling
@@ -1709,9 +1731,6 @@ Topics:
 # Channels
   - Name: Using channels
     File: serverless-channels
-# HA
-- Name: Configuring high-availability components
-  File: serverless-config-HA
 # Metering
 - Name: Using metering with OpenShift Serverless
   File: serverless-metering
