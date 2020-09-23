@@ -23,3 +23,8 @@ For example:
 ----
 console-openshift-console.apps.my-cluster.virtlab.example.com
 ----
+
+[NOTE]
+====
+Sometimes, the installation program does not remove the bootstrap virtual machine after it has finished installing the cluster. If so, you can see a virtual machine with "bootstrap" in its name under *Compute* -> *Virtual Machines* in the {rh-virtualization} Administration Portal. You can shut down and delete this virtual machine.
+====
